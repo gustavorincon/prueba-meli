@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlBase: 'https://apidigitallab.segurossura.com.co/apigw-pac/',
 };
