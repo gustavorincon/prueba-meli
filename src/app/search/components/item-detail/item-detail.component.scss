@@ -1,0 +1,73 @@
+@import '../../../../assets/styles/vars/colors.scss';
+@import '../../../../assets/styles/mixins/breakpoints';
+.content-item-detail {
+    background-color: $white;
+    width: 100%;
+    margin: auto;
+    padding: 2rem 2rem 2rem 2rem;
+    @include media-breakpoint-up(lg) {
+        width: 67%;
+    }
+}
+
+.item-detail {
+    display: flex;
+    &__text {
+        color: $gray-one;
+        font-weight: 400;
+        width: 15rem;
+        &_description {
+            font-size: 0.875rem;
+        }
+        &_name {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        &_price {
+            font-size: 1.4rem;
+        }
+    }
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $blue;
+        color: $white;
+        border-radius: 0.25rem;
+        height: 2rem;
+        margin-top: 1rem;
+    }
+    &__description {
+        font-size: 1rem;
+        margin-top: 5rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        color: $gray-two;
+        &_title {
+            font-size: 1.75rem;
+            color: $gray-one;
+        }
+        &_text {
+            text-align: justify;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        &__text {
+            &_name {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 2rem;
+            }
+            &_price {
+                font-size: 2.875rem;
+            }
+        }
+        &__button {
+            margin-top: 2rem;
+        }
+        &__description {
+            width: 38rem;
+        }
+    }
+}
