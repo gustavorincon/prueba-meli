@@ -12,4 +12,9 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
+  test(){
+    console.log('holaaa');
+  }
+
 }
