@@ -7,6 +7,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { ListComponent } from './containers/list/list.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 
 
@@ -18,7 +19,8 @@ import { ListComponent } from './containers/list/list.component';
     SearchComponent,
     ItemListComponent,
     ItemDetailComponent,
-    ListComponent
+    ListComponent,
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,

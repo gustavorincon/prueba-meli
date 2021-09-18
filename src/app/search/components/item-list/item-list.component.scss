@@ -1,0 +1,54 @@
+@import '../../../../assets/styles/vars/colors.scss';
+@import '../../../../assets/styles/mixins/breakpoints';
+.body-list {
+    background-color: $white;
+    width: 100%;
+    margin: auto;
+    padding: 1rem 1rem 0rem 1rem;
+    @include media-breakpoint-up(lg) {
+        width: 67%;
+    }
+}
+
+.item-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $gray-three;
+    &__content {
+        display: flex;
+        border-radius: 0.25rem;
+        &_img {
+            padding: 1rem 0 1rem 0;
+        }
+    }
+    &__text {
+        font-size: 1.125rem;
+        color: $gray-one;
+        padding-top: 1rem;
+        font-weight: 400;
+        &_price {
+            padding-top: .5rem;
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        &_name {
+            margin: 2rem 0 0 0;
+        }
+    }
+    &__origin {
+        font-size: 0.75rem;
+        color: $gray-two;
+        padding: 0 0 5rem 0;
+    }
+    @include media-breakpoint-up(lg) {
+        &__content {
+            &_img {
+                padding: 1rem 1rem 1rem 1rem;
+            }
+        }
+        &__origin {
+            padding: 0 6rem 3rem 0;
+        }
+    }
+}
