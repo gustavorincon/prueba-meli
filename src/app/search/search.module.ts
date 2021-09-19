@@ -8,6 +8,7 @@ import { ItemListComponent } from './components/item-list/item-list.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { ListComponent } from './containers/list/list.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +25,8 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
   ],
   imports: [
     CommonModule,
-    SearchRoutingModule
+    SearchRoutingModule,
+    FormsModule
   ]
 })
 export class SearchModule { }

@@ -1,7 +1,7 @@
 <div class="search">
     <img src="../../../assets/images/Logo_ML.png" alt="Cerrar sesión" class="search__img" />
-    <input class="search__input" type="text" />
-    <div class="search__button" (click)="test()">
+    <input [(ngModel)]="searchValue" class="search__input" type="text" />
+    <div class="search__button" (click)="search()">
         <img src="../../../assets/images/ic_Search.png" alt="Cerrar sesión" />
     </div>
 </div>

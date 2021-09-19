@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ItemResponse } from 'src/app/shared/responses/item.response';
 
 @Component({
   selector: 'app-item-detail',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-detail.component.scss']
 })
 export class ItemDetailComponent implements OnInit {
+
+  @Input() item: ItemResponse|null;
 
   constructor() { }
 

@@ -12,6 +12,7 @@ import { effectsArray } from './store/effects/app.effect';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     AppComponent

@@ -12,7 +12,7 @@ import { BaseFacade } from './base-facade';
 @Injectable({
     providedIn: 'root',
   })
-  export class ClienteFacade extends BaseFacade {
+export class ProductFacade extends BaseFacade {
     items: Observable<SearchResponse|null>;
     item: Observable<ItemResponse | null>;
     constructor(protected store: Store<AppState>) {
