@@ -28,6 +28,7 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      console.log(params);
       this.productFacade.dispatch(searchItem({idItem: params.id}));
     });
     this.title.setTitle(this.TITLE_PAGE);

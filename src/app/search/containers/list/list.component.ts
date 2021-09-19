@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProductFacade } from 'src/app/shared/facades/product.facade';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SearchResponse } from 'src/app/shared/responses/search.response';
@@ -26,11 +26,10 @@ export class ListComponent implements OnInit {
   constructor(public productFacade: ProductFacade,
               public seo: SeoService,
               private title: Title,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
-
-
     this.route.queryParams
             .pipe(
                 filter((params: Params) => params.search),
@@ -56,6 +55,11 @@ export class ListComponent implements OnInit {
         console.log(listItemsResponse);
       }
     });
+  }
+
+  // tslint:disable-next-line:typedef
+  nextView($event: string){
+    this.router.navigate([`/items/${$event}`]);
   }
 
 }

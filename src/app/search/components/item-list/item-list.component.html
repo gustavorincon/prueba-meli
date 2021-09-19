@@ -1,5 +1,5 @@
-<div class="body-list">
-    <div *ngIf="!!item" class="item-list">
+<div *ngIf="!!item" class="body-list" (click)="nextView(item.id)">
+    <div class="item-list">
         <div class="item-list__content">
             <img width="180" height="180" class="item-list__content_img" [src]="item.picture" alt="Cerrar sesión" />
             <div class="item-list__text">
