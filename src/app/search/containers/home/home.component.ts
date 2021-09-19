@@ -4,6 +4,8 @@ import {Title} from '@angular/platform-browser';
 import { SeoService } from 'src/app/shared/services/seo.service';
 import { LabelSeo } from 'src/app/shared/enums/etiquetas-seo.enum';
 import { SEO_PAGE_HOME } from 'src/app/shared/consts/seo.conts';
+import { ProductFacade } from 'src/app/shared/facades/product.facade';
+import { searchListItems } from 'src/app/store/actions/product.actions';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router,
               public seo: SeoService,
-              private title: Title ) { }
+              private title: Title,
+              public productFacade: ProductFacade ) { }
 
   ngOnInit(): void {
     this.title.setTitle(this.TITLE_PAGE);
@@ -26,7 +29,8 @@ export class HomeComponent implements OnInit {
 
  // tslint:disable-next-line:typedef
  search($event: string){
-   this.router.navigate(['/items'], { queryParams: { search: $event } });
+  this.productFacade.dispatch(searchListItems({search: $event}));
+  this.router.navigate(['/items'], { queryParams: { search: $event } });
   }
 
 }
