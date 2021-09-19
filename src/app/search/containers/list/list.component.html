@@ -1,6 +1,4 @@
 <div class="body-list">
     <app-breadcrumb></app-breadcrumb>
-    <app-item-list></app-item-list>
-    <app-item-list></app-item-list>
-    <app-item-list></app-item-list>
+    <app-item-list *ngFor="let item of listItems" [item]="item"></app-item-list>
 </div>

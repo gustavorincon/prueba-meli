@@ -17,7 +17,7 @@ export class SearchService {
   searchItems(search: string): Observable<SearchResponse> {
     return this.http
       .get<SearchResponse>(
-        `${environment.urlBase}`
+        `${environment.urlBase}?q=${search}`
       )
       .pipe(
         map((response: SearchResponse) => {
