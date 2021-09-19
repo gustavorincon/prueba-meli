@@ -17,10 +17,6 @@ const routes: Routes = [
       {
         path: 'items/:id',
        component: DetailComponent,
-      },
-      {
-        path: 'items/:id/description',
-       component: DetailComponent,
       }
     ]
     }

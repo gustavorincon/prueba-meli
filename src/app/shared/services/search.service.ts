@@ -29,7 +29,7 @@ export class SearchService {
   searchItem(idItem: string): Observable<ItemResponse> {
     return this.http
       .get<ItemResponse>(
-        `${environment.urlBase}`
+        `${environment.urlBase}/idItem`
       )
       .pipe(
         map((response: ItemResponse) => {

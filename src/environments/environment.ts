@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlBase: 'https://api.mercadolibre.com/',
+  urlBase: 'http://localhost:3001/api/items',
 };
 
 /*

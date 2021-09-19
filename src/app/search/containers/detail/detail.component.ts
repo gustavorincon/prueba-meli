@@ -8,6 +8,7 @@ import { SeoService } from 'src/app/shared/services/seo.service';
 import { Title } from '@angular/platform-browser';
 import { LabelSeo } from 'src/app/shared/enums/etiquetas-seo.enum';
 import { SEO_PAGE_DETAIL } from 'src/app/shared/consts/seo.conts';
+import { Item } from 'src/app/shared/models/item.model';
 
 @UntilDestroy()
 @Component({
@@ -17,7 +18,7 @@ import { SEO_PAGE_DETAIL } from 'src/app/shared/consts/seo.conts';
 })
 export class DetailComponent implements OnInit {
 
-  item: ItemResponse|null;
+  item: Item;
   readonly TITLE_PAGE = LabelSeo.TITLE_PAGE_DETAIL;
 
   constructor(private route: ActivatedRoute,
@@ -40,7 +41,7 @@ export class DetailComponent implements OnInit {
     .pipe(untilDestroyed(this))
     .subscribe((itemResponse: ItemResponse|null) => {
       if (!! itemResponse){
-        this.item = itemResponse;
+        this.item = itemResponse.item;
       }
     });
   }
