@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlBase: 'https://apidigitallab.segurossura.com.co/apigw-pac/',
+  urlBase: 'https://api.mercadolibre.com/',
 };
 
 /*

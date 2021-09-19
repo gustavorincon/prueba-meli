@@ -17,7 +17,7 @@ export class SearchService {
   searchItems(search: string): Observable<SearchResponse> {
     return this.http
       .get<SearchResponse>(
-        `${environment.urlBase}ohs-salud/planes-pac/consultar-planes`
+        `${environment.urlBase}`
       )
       .pipe(
         map((response: SearchResponse) => {
@@ -29,7 +29,7 @@ export class SearchService {
   searchItem(idItem: string): Observable<ItemResponse> {
     return this.http
       .get<ItemResponse>(
-        `${environment.urlBase}ohs-salud/planes-pac/consultar-planes`
+        `${environment.urlBase}`
       )
       .pipe(
         map((response: ItemResponse) => {

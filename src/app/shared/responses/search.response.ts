@@ -3,7 +3,7 @@ import { Category } from '../models/category.model';
 import { Item } from '../models/item.model';
 
 export interface SearchResponse {
-    author?: Author;
-    categories?: Category[];
-    items?: Item[];
+    author: Author;
+    categories: string[];
+    items: Item[];
 }
