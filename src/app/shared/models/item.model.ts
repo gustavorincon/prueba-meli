@@ -1,3 +1,4 @@
+import { LocationItem } from './location.model';
 import { Price } from './price.model';
 
 export interface Item {
@@ -9,5 +10,6 @@ export interface Item {
         free_shipping: boolean;
         sold_quantity?: number;
         description?: string;
+        location?: LocationItem;
 
 }
