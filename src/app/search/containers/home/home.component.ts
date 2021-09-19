@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {Title} from '@angular/platform-browser';
+import { SeoService } from 'src/app/shared/services/seo.service';
+import { LabelSeo } from 'src/app/shared/enums/etiquetas-seo.enum';
+import { SEO_PAGE_HOME } from 'src/app/shared/consts/seo.conts';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +12,15 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  readonly TITLE_PAGE = LabelSeo.TITLE_PAGE_HOME;
+
+  constructor(private router: Router,
+              public seo: SeoService,
+              private title: Title ) { }
 
   ngOnInit(): void {
+    this.title.setTitle(this.TITLE_PAGE);
+    this.seo.generateTags(SEO_PAGE_HOME);
   }
 
 
