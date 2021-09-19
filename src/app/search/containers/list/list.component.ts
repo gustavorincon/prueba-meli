@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ProductFacade } from 'src/app/shared/facades/product.facade';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SearchResponse } from 'src/app/shared/responses/search.response';
@@ -8,6 +8,8 @@ import { SeoService } from 'src/app/shared/services/seo.service';
 import { LabelSeo } from 'src/app/shared/enums/etiquetas-seo.enum';
 import { SEO_PAGE_LIST } from 'src/app/shared/consts/seo.conts';
 import { Item } from 'src/app/shared/models/item.model';
+import { filter, map } from 'rxjs/operators';
+import { searchListItems } from 'src/app/store/actions/product.actions';
 
 @UntilDestroy()
 @Component({
@@ -23,9 +25,20 @@ export class ListComponent implements OnInit {
 
   constructor(public productFacade: ProductFacade,
               public seo: SeoService,
-              private title: Title) { }
+              private title: Title,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+
+    this.route.queryParams
+            .pipe(
+                filter((params: Params) => params.search),
+                map((params: Params) => params.search)
+            )
+            .subscribe(search => {
+              this.productFacade.dispatch(searchListItems({search}));
+            });
     this.title.setTitle(this.TITLE_PAGE);
     this.seo.generateTags(SEO_PAGE_LIST);
     this.getListItemsSubscription();

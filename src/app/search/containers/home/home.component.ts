@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
 
  // tslint:disable-next-line:typedef
  search($event: string){
-  this.productFacade.dispatch(searchListItems({search: $event}));
   this.router.navigate(['/items'], { queryParams: { search: $event } });
   }
 
