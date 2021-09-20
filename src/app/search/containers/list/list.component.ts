@@ -21,6 +21,7 @@ export class ListComponent implements OnInit {
 
 
   listItems: Item[];
+  categories: string[];
   readonly TITLE_PAGE = LabelSeo.TITLE_PAGE_LIST;
 
   constructor(public productFacade: ProductFacade,
@@ -52,7 +53,7 @@ export class ListComponent implements OnInit {
     .subscribe((listItemsResponse: SearchResponse|null) => {
       if (!! listItemsResponse){
         this.listItems = listItemsResponse.items;
-        console.log(listItemsResponse);
+        this.categories =  listItemsResponse.categories;
       }
     });
   }

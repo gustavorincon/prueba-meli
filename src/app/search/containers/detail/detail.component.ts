@@ -19,6 +19,7 @@ import { Item } from 'src/app/shared/models/item.model';
 export class DetailComponent implements OnInit {
 
   item: Item;
+  categories: string[];
   readonly TITLE_PAGE = LabelSeo.TITLE_PAGE_DETAIL;
 
   constructor(private route: ActivatedRoute,
@@ -28,7 +29,6 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      console.log(params);
       this.productFacade.dispatch(searchItem({idItem: params.id}));
     });
     this.title.setTitle(this.TITLE_PAGE);
@@ -43,6 +43,7 @@ export class DetailComponent implements OnInit {
     .subscribe((itemResponse: ItemResponse|null) => {
       if (!! itemResponse){
         this.item = itemResponse.item;
+        this.categories =  itemResponse.categories;
       }
     });
   }
