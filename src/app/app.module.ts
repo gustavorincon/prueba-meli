@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { effectsArray } from './store/effects/app.effect';
 import { HttpClientModule } from '@angular/common/http';
+import { ComponentsModule } from './components/components.module';
 
 
 
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     SearchModule,
     HttpClientModule,
+    ComponentsModule,
     EffectsModule.forRoot(effectsArray),
     StoreModule.forRoot(reducers, {
       runtimeChecks: {

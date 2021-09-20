@@ -8,6 +8,9 @@ import { LoadingComponent } from './loading/loading.component';
   declarations: [LoadingComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    LoadingComponent
   ]
 })
 export class ComponentsModule { }

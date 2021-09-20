@@ -12,6 +12,7 @@ import { filter, map } from 'rxjs/operators';
 import { cleanItem, cleanItems, searchItemSuccess, searchListItems } from 'src/app/store/actions/product.actions';
 import { ErrorText } from 'src/app/shared/enums/error-text.enum';
 
+
 @UntilDestroy()
 @Component({
   selector: 'app-list',
@@ -31,7 +32,8 @@ export class ListComponent implements OnInit {
               public seo: SeoService,
               private title: Title,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              ) { }
 
   ngOnInit(): void {
     this.productFacade.dispatch(cleanItems());
