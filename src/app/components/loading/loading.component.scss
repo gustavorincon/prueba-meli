@@ -19,7 +19,8 @@
     opacity: .9;
     &__box {
         text-align: center;
-        width: 18.75rem &_img {
+        width: 18.75rem;
+        &_img {
             width: 3.125rem;
             margin: 0.3125rem auto
         }

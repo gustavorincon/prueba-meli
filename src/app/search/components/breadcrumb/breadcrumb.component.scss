@@ -6,7 +6,9 @@
     margin: auto;
     &__content {
         color: $gray-two;
-        width: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &_text {
             font-size: 0.875rem;
         }
