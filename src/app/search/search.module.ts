@@ -11,8 +11,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
 import { DetailNotFoundComponent } from './components/detail-not-found/detail-not-found.component';
-
-
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -30,7 +29,8 @@ import { DetailNotFoundComponent } from './components/detail-not-found/detail-no
   imports: [
     CommonModule,
     SearchRoutingModule,
-    FormsModule
+    FormsModule,
+    ComponentsModule
   ]
 })
 export class SearchModule { }

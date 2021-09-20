@@ -1,6 +1,6 @@
-<div class="content">
-    <div *ngFor="let breadcrumb of breadcrumbs">
-        <a [routerLink]="['/items']" [queryParams]="{ search: breadcrumb }" routerLinkActive="active">{{breadcrumb}}</a
+<div class="breadcrumd">
+    <div class="breadcrumd__content" *ngFor="let breadcrumb of breadcrumbs">
+        <a [routerLink]="['/items']" class="breadcrumd__content breadcrumd__content_text" [queryParams]="{ search: breadcrumb }" routerLinkActive="active">{{breadcrumb}}</a
     >
     <span>></span>
   </div>
