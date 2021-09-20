@@ -26,3 +26,7 @@ export const cleanItem = createAction(
     '[PRODUCT] Limpiar item'
   );
 
+export const cleanItems = createAction(
+    '[PRODUCT] Limpiar items'
+  );
+

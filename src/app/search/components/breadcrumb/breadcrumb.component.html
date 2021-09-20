@@ -1,6 +1,7 @@
 <div class="content">
     <div *ngFor="let breadcrumb of breadcrumbs">
-        <span>{{breadcrumb}}</span>
-        <span>></span>
-    </div>
+        <a [routerLink]="['/items']" [queryParams]="{ search: breadcrumb }" routerLinkActive="active">{{breadcrumb}}</a
+    >
+    <span>></span>
+  </div>
 </div>

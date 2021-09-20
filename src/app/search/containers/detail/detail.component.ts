@@ -6,7 +6,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ItemResponse } from 'src/app/shared/responses/item.response';
 import { SeoService } from 'src/app/shared/services/seo.service';
 import { Title } from '@angular/platform-browser';
-import { LabelSeo } from 'src/app/shared/enums/etiquetas-seo.enum';
+import { LabelSeo } from 'src/app/shared/enums/labels-seo.enum';
 import { SEO_PAGE_DETAIL } from 'src/app/shared/consts/seo.conts';
 import { Item } from 'src/app/shared/models/item.model';
 

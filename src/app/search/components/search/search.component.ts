@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -8,7 +8,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   @Output() changeSearch: EventEmitter<string> = new EventEmitter();
-  searchValue = '';
+  @Input() searchValue = '';
+
 
   constructor() { }
 
@@ -17,7 +18,9 @@ export class SearchComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   search(){
-    this.changeSearch.emit(this.searchValue);
+    if (!!this.searchValue){
+      this.changeSearch.emit(this.searchValue);
+    }
   }
 
 }

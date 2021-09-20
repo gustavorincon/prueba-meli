@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import { EMPTY, Observable } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { ItemResponse } from 'src/app/shared/responses/item.response';
 import { SearchResponse } from 'src/app/shared/responses/search.response';
 import { SearchService } from 'src/app/shared/services/search.service';
@@ -13,18 +14,22 @@ import * as productActions from '../actions/product.actions';
 export class ProductEffect {
   constructor(
     private actions$: Actions,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private router: Router
   ) {}
 
   @Effect()
   getItems$: Observable<Action> = this.actions$.pipe(
     ofType(productActions.searchListItems),
     mergeMap(action =>
-      this.searchService.searchItems(action.search).pipe(
+      this.searchService.searchItems(this.removeAccents(action.search)).pipe(
         map((response: SearchResponse) => {
           return productActions.searchListItemsSuccess({
             searchResponse: response,
           });
+        }),
+        catchError(error => {
+          return EMPTY;
         })
       )
     )
@@ -39,8 +44,19 @@ export class ProductEffect {
           return productActions.searchItemSuccess({
             itemResponse: response,
           });
+        }),
+        catchError(error => {
+          this.router.navigate(['/404']);
+          return EMPTY;
         })
       )
     )
   );
+
+
+    // tslint:disable-next-line:typedef
+    removeAccents( str: string ) {
+      return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
 }
+

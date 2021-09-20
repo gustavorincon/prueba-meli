@@ -25,6 +25,10 @@ const reducer = createReducer(
     on(productActions.cleanItem, state => {
       state.itemResponse = appInitialState.product.itemResponse;
       return state;
+    }),
+    on(productActions.cleanItems, state => {
+      state.searchResponse = appInitialState.product.searchResponse;
+      return state;
     })
   );
 

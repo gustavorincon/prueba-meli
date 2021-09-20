@@ -9,6 +9,8 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import { ListComponent } from './containers/list/list.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './containers/not-found/not-found.component';
+import { DetailNotFoundComponent } from './components/detail-not-found/detail-not-found.component';
 
 
 
@@ -21,7 +23,9 @@ import { FormsModule } from '@angular/forms';
     ItemListComponent,
     ItemDetailComponent,
     ListComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    NotFoundComponent,
+    DetailNotFoundComponent
   ],
   imports: [
     CommonModule,

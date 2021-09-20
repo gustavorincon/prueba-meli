@@ -8,8 +8,7 @@
             <p class="item-detail__text_name">
                 {{item.title}}
             </p>
-            <span class="item-detail__text_price">{{item.price.currency}}
-        {{item.price.amount}}.{{item.price.decimals}}</span
+            <span class="item-detail__text_price">{{item.price.currency}} {{item.price.decimals|number}}</span
       >
       <div class="item-detail__button">Comprar</div>
     </div>

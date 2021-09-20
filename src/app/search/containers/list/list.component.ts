@@ -5,11 +5,12 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SearchResponse } from 'src/app/shared/responses/search.response';
 import {Title} from '@angular/platform-browser';
 import { SeoService } from 'src/app/shared/services/seo.service';
-import { LabelSeo } from 'src/app/shared/enums/etiquetas-seo.enum';
+import { LabelSeo } from 'src/app/shared/enums/labels-seo.enum';
 import { SEO_PAGE_LIST } from 'src/app/shared/consts/seo.conts';
 import { Item } from 'src/app/shared/models/item.model';
 import { filter, map } from 'rxjs/operators';
-import { cleanItem, searchItemSuccess, searchListItems } from 'src/app/store/actions/product.actions';
+import { cleanItem, cleanItems, searchItemSuccess, searchListItems } from 'src/app/store/actions/product.actions';
+import { ErrorText } from 'src/app/shared/enums/error-text.enum';
 
 @UntilDestroy()
 @Component({
@@ -23,6 +24,8 @@ export class ListComponent implements OnInit {
   listItems: Item[];
   categories: string[];
   readonly TITLE_PAGE = LabelSeo.TITLE_PAGE_LIST;
+  readonly TEXT_ITEMS_LIST_NOT_FOUND = ErrorText.TEXT_ERROR_ITEMS_LIST_NOT_FOUND;
+  showNotFound = false;
 
   constructor(public productFacade: ProductFacade,
               public seo: SeoService,
@@ -31,6 +34,7 @@ export class ListComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+    this.productFacade.dispatch(cleanItems());
     this.route.queryParams
             .pipe(
                 filter((params: Params) => params.search),
@@ -43,9 +47,6 @@ export class ListComponent implements OnInit {
     this.seo.generateTags(SEO_PAGE_LIST);
     this.getListItemsSubscription();
   }
-
-
-
    // tslint:disable-next-line:typedef
    getListItemsSubscription() {
     this.productFacade.items
@@ -54,6 +55,7 @@ export class ListComponent implements OnInit {
       if (!! listItemsResponse){
         this.listItems = listItemsResponse.items;
         this.categories =  listItemsResponse.categories;
+        this.showNotFound = this.listItems.length === 0 ? true : false;
       }
     });
   }
