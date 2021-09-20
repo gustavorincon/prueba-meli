@@ -1,6 +1,6 @@
 <div *ngIf="!!item" class="content-item-detail">
     <div class="item-detail">
-        <img width="680" class="item-list__content_img" [src]="item.picture" alt="producto" />
+        <img class="item-detail__content" [src]="item.picture" alt="producto" />
         <div class="item-detail__text">
             <p class="item-detail__text_description">
                 {{ (item.condition === 'new' ? 'Nuevo' : 'Usado') }} - {{ item.sold_quantity }} vendidos

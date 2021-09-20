@@ -9,7 +9,7 @@ import { LabelSeo } from 'src/app/shared/enums/etiquetas-seo.enum';
 import { SEO_PAGE_LIST } from 'src/app/shared/consts/seo.conts';
 import { Item } from 'src/app/shared/models/item.model';
 import { filter, map } from 'rxjs/operators';
-import { searchListItems } from 'src/app/store/actions/product.actions';
+import { cleanItem, searchItemSuccess, searchListItems } from 'src/app/store/actions/product.actions';
 
 @UntilDestroy()
 @Component({
@@ -60,6 +60,7 @@ export class ListComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   nextView($event: string){
+    this.productFacade.dispatch(cleanItem());
     this.router.navigate([`/items/${$event}`]);
   }
 

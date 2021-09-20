@@ -2,6 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { productInitialState, ProductState } from '../state/product.state';
 import * as productActions from '../actions/product.actions';
 import produce from 'immer';
+import { appInitialState } from '../state/app.state';
 
 
 
@@ -21,6 +22,10 @@ const reducer = createReducer(
         itemResponse,
       })
     ),
+    on(productActions.cleanItem, state => {
+      state.itemResponse = appInitialState.product.itemResponse;
+      return state;
+    })
   );
 
 export function productReducer(

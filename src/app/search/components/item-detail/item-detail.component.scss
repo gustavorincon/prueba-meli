@@ -13,7 +13,8 @@
 
 .item-detail {
     display: flex;
-    margin-bottom: 3rem;
+    flex-direction: column;
+    align-items: center;
     &__text {
         color: $gray-one;
         font-weight: 400;
@@ -54,7 +55,12 @@
             text-align: justify;
         }
     }
+    &__content {
+        width: 200px;
+    }
     @include media-breakpoint-up(lg) {
+        flex-direction: row;
+        align-items: initial;
         &__text {
             &_name {
                 font-size: 1.5rem;
@@ -70,6 +76,9 @@
         }
         &__description {
             width: 38rem;
+        }
+        &__content {
+            width: 680px;
         }
     }
 }

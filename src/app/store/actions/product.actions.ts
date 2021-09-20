@@ -21,3 +21,8 @@ export const searchItemSuccess = createAction(
     '[PRODUCT] consultar item por id con exito',
     props<{ itemResponse: ItemResponse }>()
   );
+
+export const cleanItem = createAction(
+    '[PRODUCT] Limpiar item'
+  );
+
