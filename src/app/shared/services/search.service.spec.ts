@@ -76,7 +76,7 @@ describe('SearchService', () => {
       });
 
     // Validamos la url de nuestra API
-      const req = httpMock.expectOne(environment.urlBase);
+      const req = httpMock.expectOne(`${environment.urlBase}?q=celulares`);
       expect(req.request.method).toBe('GET'); // Validamos que sea un metodo GET
       req.flush(mockSearchResponse); // Proporcionar valores ficticios como respuesta de nuestras peticiones
   });
@@ -88,6 +88,7 @@ describe('SearchService', () => {
         name: 'Gustavo',
         lastname: 'Rincon'
         },
+        categories: ['categoria 1', 'categoria2'],
         item:
         {
         id: '123',
@@ -111,7 +112,7 @@ describe('SearchService', () => {
     });
 
   // Validamos la url de nuestra API
-    const req = httpMock.expectOne(environment.urlBase);
+    const req = httpMock.expectOne(`${environment.urlBase}/1234`);
     expect(req.request.method).toBe('GET'); // Validamos que sea un metodo GET
     req.flush(mockItemResponse); // Proporcionar valores ficticios como respuesta de nuestras peticiones
 
