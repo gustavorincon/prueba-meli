@@ -3,6 +3,7 @@
 .content-item-detail {
     background-color: $white;
     width: 100%;
+    height: auto;
     margin: auto;
     padding: 2rem 2rem 2rem 2rem;
     @include media-breakpoint-up(lg) {
@@ -12,6 +13,7 @@
 
 .item-detail {
     display: flex;
+    margin-bottom: 3rem;
     &__text {
         color: $gray-one;
         font-weight: 400;
