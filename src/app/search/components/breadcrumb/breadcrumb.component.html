@@ -1,7 +1,7 @@
 <div class="breadcrumd">
-    <div class="breadcrumd__content" *ngFor="let breadcrumb of breadcrumbs">
+    <div class="breadcrumd__content" *ngFor="let breadcrumb of breadcrumbs; last as isLast">
         <a [routerLink]="['/items']" class="breadcrumd__content breadcrumd__content_text" [queryParams]="{ search: breadcrumb }" routerLinkActive="active">{{breadcrumb}}</a
     >
-    <span>></span>
+    <span *ngIf="!isLast">></span>
   </div>
 </div>
